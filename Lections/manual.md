@@ -89,9 +89,9 @@ t = (1,)
 ```
 dictionary = {}
 dictionary = {
-    'up': 'верх'
-    'down': 'вниз'
-    'left': 'влево'
+    'up': 'верх',
+    'down': 'вниз',
+    'left': 'влево',
     'right': 'вправо'
 }
 print(dictionary['left']) #влево
