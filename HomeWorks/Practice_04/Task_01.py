@@ -3,8 +3,11 @@
 #
 # при $d = 0.001, π = 3.141.$ $10^{-1} ≤ d ≤10^{-10}$
 
-import math
 
+# Импорт библиотеки math
+import math 
+
+# Функция 
 def Accuracy(data):
     i = 0
     while(1 > data):
