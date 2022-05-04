@@ -12,21 +12,32 @@ def ReadFile(path):
     dataString = re.sub(r'\*x', '', dataString)
     dataString = re.sub(r'\s\+', '', dataString)
     dataString = re.sub(r'\s\=\s0', '', dataString)
-    #dataString = dataString.replace('=', '')
+    dataString = re.sub(r'\s\-\s', ' -', dataString)
     dataList = dataString.split(' ')
     for i in range(0, len(dataList)):
         dataList[i] = int(dataList[i])
     return dataList
 
 def writeFile(path, dataWrite):
-    # открытие файла для записи
     data = open(path, 'w')
 
     for i in range(0, len(dataWrite)):
-        if(i < (len(dataWrite) - 2)):
-            data.write(f'{dataWrite[i]}*x^{len(dataWrite)-i} + ')
+        if(i == 0):
+            if(dataWrite[i + 1] > 0):
+                data.write(f'{dataWrite[i]}*x^{len(dataWrite)-i} + ')
+        elif(i < (len(dataWrite) - 2)):
+            if(dataWrite[i + 1] > 0):
+                if(dataWrite[i] > 0):
+                    data.write(f'{dataWrite[i]}*x^{len(dataWrite)-i} + ')
+                else:
+                    data.write(f'{dataWrite[i]*(-1)}*x^{len(dataWrite)-i} + ')
+            else:
+                data.write(f'{dataWrite[i]}*x^{len(dataWrite)-i} - ')
         if(i == (len(dataWrite) - 2)):
-            data.write(f'{dataWrite[i]}*x + {dataWrite[len(dataWrite) - 1]} = 0\n')
+            if(dataWrite[len(dataWrite) - 1] > 0):
+                data.write(f'{dataWrite[i]}*x + {dataWrite[len(dataWrite) - 1]} = 0')
+            else:
+                data.write(f'{dataWrite[i]}*x - {dataWrite[len(dataWrite) - 1] * (-1)} = 0')
     data.close()
 
 first_path = 'First_x.txt'
