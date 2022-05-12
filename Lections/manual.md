@@ -182,5 +182,21 @@ list_1.insert(<pos>, <value>)
 ```
 list_1.append(<value>)
 ```
+
+### Включения
+```
+my_list = [x for x in range(1, 101) if (x % 10 == 3) or (x % 10 == 6)]
+
+print(my_list)
+```
+
+Здесь:
+    _x_ - Какой элемент взять
+    _for x in range(1, 101)_ - Стандартное описание как в _for_
+    _if (x % 10 == 3) or (x % 10 == 6)_ - Условие, при котором включаем элементы в список (необязательное)
+
+
+
+
 Byte of Python
 Stepik
