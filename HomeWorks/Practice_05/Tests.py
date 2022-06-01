@@ -14,7 +14,11 @@
 #         word.replace('5')
 #         li.insert(index, '5')
 # print(li)
+import random
 
-sum = 2021
-turn = 28
-print(sum % turn)
+player_list = ['Player 1', 'Player 2']
+print(player_list[1])
+bots_name = ['Anna', 'Maria', 'David', 'John', 'Simon', 'Alfred', 'Alex']
+temp = ''.join(random.choices(bots_name)).replace('[', '').replace('\'', '')
+# player_list[1] = random.choices(bots_name)
+print(temp)
