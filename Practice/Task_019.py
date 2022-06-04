@@ -39,15 +39,13 @@ action = {
     '/' : lambda x, y: x / y
 }
 
-input_expression = input('Enter expression:\n').replace(' ', '')
+input_expression = input('Enter expression: ').replace(' ', '')
 for char in input_expression:
     try:
         data_list.append(float(char))
     except ValueError:
         data_list.append(char)
 
-index = index_first(data_list)
-
 data_list = first_priority(data_list)
 data_list = second_priority(data_list)
-print(data_list[0])
+print(f'Answer: {data_list[0]}')
