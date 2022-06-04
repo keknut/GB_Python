@@ -1,7 +1,6 @@
 # Создайте программу для игры в "Крестики-нолики".
 
 from tkinter import *
-import random
 
 from GB_Python.HomeWorks.Practice_05.Task_02 import game
 
