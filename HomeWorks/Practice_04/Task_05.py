@@ -40,10 +40,11 @@ def writeFile(path, dataWrite):
                 data.write(f'{dataWrite[i]}*x - {dataWrite[len(dataWrite) - 1] * (-1)} = 0')
     data.close()
 
-first_path = 'First_x.txt'
-second_path = 'Second_x.txt'
+first_path = 'GB_Python\HomeWorks\Practice_04\First_x.txt'
+second_path = 'GB_Python\HomeWorks\Practice_04\Second_x.txt'
+result_path = 'GB_Python\HomeWorks\Practice_04\Result.txt'
 
 first_data = ReadFile(first_path)
 second_data = ReadFile(second_path)
 resultData = numpy.polyadd(first_data, second_data)
-writeFile('Result.txt', resultData)
+writeFile(result_path, resultData)
