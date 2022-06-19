@@ -8,8 +8,5 @@ delete_str = input('Input string: ')
 my_str = 'Усложнение. В данном решении пользователь сам задаёт строку. Если программа найдёт слова содержащие эту строку, она их удалит.'
 print(f'Actual string:\n{my_str}\n----')
 my_str = my_str.split(' ')
-result = ''
-for word in my_str:
-    if word.find(delete_str) == -1:
-        result += word + ' '
-print(result)
+my_str = ' '.join(map(str, list(filter(lambda word: word.find(delete_str) == -1, my_str))))
+print(my_str)
