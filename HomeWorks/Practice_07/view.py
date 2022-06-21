@@ -19,7 +19,7 @@ def find_contact(contacts):
     print('Find contact:')
     first_name = input('First name: ')
     last_name = input('Last name: ')
-    print('--Find--')
+    print('--Found--')
     find = True
     count = 1
     for i in contacts:
@@ -28,7 +28,7 @@ def find_contact(contacts):
             find = False
         count += 1
     if find:
-        print('Not find!')
+        print('Not found!')
 
 def add_contact_first_name():
     first_name = input('First name: ')

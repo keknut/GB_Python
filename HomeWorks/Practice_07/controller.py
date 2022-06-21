@@ -36,18 +36,31 @@ def controller_main():
         if choice == '1':
             csvW.csv_add(data.add_contact(v.add_contact_first_name(), v.add_contact_last_name(), v.add_contact_phone()), csv_path)
             continue
+
+        # Пункт меню "Удаление контакта"
+        # Считывает файл csv, удаляет необходимый контакт по id
+        # Перезаписывает файл с новой базой
         if choice == '2':
             data.set_contacts(csvW.csv_read(csv_path))
             data.del_contact(v.del_contact())
             csvW.csv_write_contacts(data.get_contacts(), csv_path)
             continue
+
+        # Пункт меню "Посмотреть контакты"
+        # Считывает все контакты из файла csv и выводит на консоль
         if choice == '3':
             v.print_contacts(csvW.csv_read(csv_path))
             continue
+
+        # Пункт меню "Найти контакт"
+        # Читает файл csv, ищет совпадения, выводит на консоль
         if choice == '4':
             data.set_contacts(csvW.csv_read(csv_path))
             v.find_contact(data.get_contacts())
             continue
+
+        # Пункт меню "Выход"
+        # Присваивает переменной False и программа выходит из цикла
         if choice == '5':
             program = False
             continue
