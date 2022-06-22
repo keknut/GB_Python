@@ -5,7 +5,6 @@ from pathlib import Path
 
 def controller_main():
     # Путь к csv файлу
-    
     csv_path = Path(Path.cwd(), 'phone_book.csv')
     
     # Пока переменная True, программа исполняется
