@@ -1,4 +1,6 @@
-from pathlib import Path
-# dir_path = Path.cwd()
-# path = Path(dir_path, )
-print(Path.cwd())
+dict = []
+print(len(dict))
+dict.append(1)
+dict.append(1)
+dict.append(1)
+print(len(dict))

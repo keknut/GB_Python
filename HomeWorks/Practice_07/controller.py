@@ -55,7 +55,8 @@ def controller_main():
         # Читает файл csv, ищет совпадения, выводит на консоль
         if choice == '4':
             data.set_contacts(csvW.csv_read(csv_path))
-            v.find_contact(data.get_contacts())
+            name = v.input_find_contact()
+            v.print_find_contact(data.find_contact(name[0], name[1]))
             continue
 
         # Пункт меню "Выход"

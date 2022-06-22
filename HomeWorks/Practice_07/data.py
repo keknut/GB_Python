@@ -20,6 +20,19 @@ def add_contact(first_name, last_name, phone):
     new_contact = [new_contact]
     return new_contact
 
+def find_contact(first_name, last_name):
+    result = []
+    count = 1
+    for i in contacts:
+        if i['First name'] == first_name or i['Last name'] == last_name:
+            result.append({
+                'count' : count,
+                'First name' : i['First name'],
+                'Last name' : i['Last name'],
+                'Phone' : i['Phone']})
+        count += 1
+    return result
+
 def del_contact(id):
     global contacts
     contacts.pop(id - 1)
