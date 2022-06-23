@@ -5,7 +5,7 @@ from pathlib import Path
 
 def controller_main():
     # Путь к csv файлу
-    csv_path = Path(Path.cwd(), 'phone_book.csv')
+    csv_path = Path(Path.cwd(), 'GB_Python', 'phone_book.csv')
     
     # Пока переменная True, программа исполняется
     program = True
@@ -33,7 +33,8 @@ def controller_main():
         # Пункт меню "Добавить контакт"
         # Добавляет контакт сразу в файл csv 
         if choice == '1':
-            csvW.csv_add(data.add_contact(v.add_contact_first_name(), v.add_contact_last_name(), v.add_contact_phone()), csv_path)
+            new_contact = v.add_contact()
+            csvW.csv_add(data.add_contact(new_contact['First name'], new_contact['Last name'], new_contact['Phone']), csv_path)
             continue
 
         # Пункт меню "Удаление контакта"
@@ -41,7 +42,7 @@ def controller_main():
         # Перезаписывает файл с новой базой
         if choice == '2':
             data.set_contacts(csvW.csv_read(csv_path))
-            data.del_contact(v.del_contact())
+            v.del_contact_status(data.del_contact(v.del_contact()))
             csvW.csv_write_contacts(data.get_contacts(), csv_path)
             continue
 

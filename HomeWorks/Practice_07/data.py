@@ -1,3 +1,4 @@
+# Переменная содержит данные тестового дата-сета
 contacts = [{   'First name' : 'John',
                 'Last name' : 'Connor',
                 'Phone' : '+79012345678'},
@@ -11,6 +12,13 @@ contacts = [{   'First name' : 'John',
                 'Last name' : 'T-800',
                 'Phone' : '+18885121984'}]
 
+# Функция добавляет новый контакт в переменную contacts
+# Вход:
+#   -first_name
+#   -last_name
+#   -Phone
+# Возвращает:
+#   Словарь с новым контактом
 def add_contact(first_name, last_name, phone):
     global contacts
     new_contact = {'First name' : first_name,
@@ -35,7 +43,11 @@ def find_contact(first_name, last_name):
 
 def del_contact(id):
     global contacts
-    contacts.pop(id - 1)
+    try:
+        contacts.pop(id - 1)
+        return True
+    except IndexError:
+        print('This contact is not in the database.')
 
 def get_contacts():
     global contacts
