@@ -1,0 +1,2 @@
+from input_data.init_data import input_employee
+from input_data.init_data import input_del_employee
