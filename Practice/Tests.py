@@ -1,24 +1,15 @@
 import tkinter
-from tkinter.ttk import Combobox 
+from tkinter.ttk import Combobox
+import time
 
 import requests
 
 def click():
     global link
-    # if text.get() == 'Hello where!':
-    #     text.set('Clicked')
-    #     lbl.configure(textvariable=text)
-    # else:
-    #     text.set('Hello where!')
-    #     lbl.configure(textvariable=text)
 
     text.set(get_valutes_value(link, get_valutes_char_code(link, combo.get())))
     lbl.configure(textvariable=text)
 
-    # if btn.cget('text') == "Don't click!":
-    #     btn.configure(text='Clicked!')
-    # else:
-    #     btn.configure(text="Don't click!")
     print(combo.get())
 
 def get_valutes_name(link):
@@ -56,6 +47,25 @@ btn.grid(column=0, row=1)
 combo = Combobox(window, values=get_valutes_name(link))
 combo.current(1)
 combo.grid(column=0, row=2)
+
+text_repeat = tkinter.StringVar()
+text_repeat.set('Current')
+
+lbl_ping = tkinter.Label(window, textvariable=text_repeat)
+lbl_ping.grid(column=0, row=3)
+
+loop = True
+
+valutes = []
+
+for valute in get_valutes_name(link):
+    valutes.append(valute)
+
+for valute in valutes:
+    discount = get_valutes_value(link, get_valutes_char_code(link, valute))
+    time.sleep(5)
+    text_repeat.set(f'{valute}: {discount}')
+    time.sleep(5)
 
 
 window.mainloop()
